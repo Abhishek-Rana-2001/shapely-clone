@@ -4,7 +4,6 @@ import ButtonComponent from "../../components/Button"
 import { IoIosLock } from "react-icons/io"
 import { useNavigate } from "react-router-dom"
 import { useFunnel } from "../../context/FunnelContext"
-import type { FormDataType } from "../../utils/types"
 
 // type ValueObjType = FormDataType & {
 //   insurancePlan: string;
