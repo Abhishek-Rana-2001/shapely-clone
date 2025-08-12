@@ -25,7 +25,7 @@ const SelfPay = () => {
   return (
     <>
     <div className="flex items-center justify-center flex-col flex-1">
-      <h1 className="!md:text-[32px] !text-[20px] max-w-full lg:max-w-[90%] !mb-8 mx-auto !text-[#231F20] !font-semibold !mt-8 !text-pretty">
+      <h1 className="!md:text-[32px] !text-[20px] max-w-full lg:max-w-[90%] !mb-8 mx-auto !text-[#231F20] !font-semibold !mt-8 !text-pretty text-center">
         {notOverweight
           ? localStrings.SELF_PAY_PROGRAM
           : localStrings.STILL_COVER_WEIGHT_LOSS_PROGRAM}
@@ -37,13 +37,13 @@ const SelfPay = () => {
           </p>
         ) : (
           <>
-            <p className="text-[14px] lg:text-[22px] font-semibold !text-[#231F20] md:max-w-[80%] max-w-[90%]  mx-auto !mb-8">
+            <p className="text-[14px] lg:text-[22px] font-semibold !text-[#231F20] md:max-w-[80%] max-w-[90%] text-center  mx-auto !mb-8">
               {localStrings.CURRENTLY_NOT_COVERING_NUTRITION}
             </p>
             <p className="text-[14px] lg:text-[22px] font-semibold !text-[#231F20] max-w-[90%] mx-auto !mb-4">
               {localStrings.AS_PART_OF_PROGRAM}
             </p>
-            <ul>
+            <ul className="!pl-0">
               {localStrings.BENEFITS_RECEIVE_LIST.map((benefit) => (
                 <li className="text-[12px] lg:text-[22px] flex sm:items-center items-start gap-2 mb-2 justify-start font-normal text-[#231F20]">
                   <span
@@ -61,7 +61,7 @@ const SelfPay = () => {
       </Card>
       </div>
       <div
-        className={`mt-5 flex sm:flex-col flex-row justify-center`}
+        className={`mt-5 flex sm:flex-row flex-col gap-3 justify-center`}
       >
         <ButtonComponent
           buttonText={localStrings.YES_CONTINUE}

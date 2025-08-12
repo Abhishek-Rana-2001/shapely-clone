@@ -48,7 +48,7 @@ export const CallSchedulerProvider: React.FC<CallSchedulerProviderProps> = ({ ch
   const offering_id = searchParams.get("offering_id") ?? "";
 
     const fetchData = async () => {
-    const url = `https://zoho-solution-887781528.development.catalystserverless.com/server/zohocrm/providers/?state=${state}`;
+    const url = `https://zoho-solution-887781528.development.catalystserverless.com/server/zohocrm/provider/?state=${state}`;
 
     try {
       const response = await fetch(url, {

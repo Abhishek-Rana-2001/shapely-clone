@@ -39,7 +39,7 @@ function InsuranceBenefits() {
                         className="border-0 !mt-10"
                     />
                 </div>
-                <p className="text-xs sm:text-sm !text-[#231F20] flex gap-2 items-center  mt-3">
+                <p className="text-xs sm:text-sm !text-[#231F20] flex gap-2 items-center max-sm:justify-center mt-3">
                     <IoIosLock />
                     {localStrings.ALL_INFO_SECURE}
                 </p>

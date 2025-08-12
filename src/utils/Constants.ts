@@ -112,12 +112,12 @@ export const localStrings = {
         },
         {
             label: "Insurance plan",
-            key: "insurance_plan",
+            key: "insurancePlan",
             type: "text",
         },
         {
             label: "Member ID",
-            key: "member_id",
+            key: "memberId",
             type: "number",
         }
     ],

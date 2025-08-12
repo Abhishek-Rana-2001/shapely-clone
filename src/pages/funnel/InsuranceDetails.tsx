@@ -7,8 +7,13 @@ import { IoIosLock } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import { useFunnel } from '../../context/FunnelContext';
 
+type insuranceType = {
+    label:string,
+    value:string
+}
+
 const InsuranceDetails = () => {
-    const [selectedInsurance, setSelectedInsurance] = useState(null)
+    const [selectedInsurance, setSelectedInsurance] = useState<null | insuranceType>(null)
     const navigate = useNavigate()
     const { handleProgressBar, userDetails,memberId, setMemberId, birthDate  } = useFunnel();
     const insurance = [
@@ -25,7 +30,7 @@ const InsuranceDetails = () => {
 
     const handleCheckInsurance = async()=>{
         try {
-            const response = await fetch(`https://zoho-solution-887781528.development.catalystserverless.com/server/zohocrm/insurance?insurance=${selectedInsurance}&firstName=${userDetails.first_name}&lastName=${userDetails.last_name}&memberId=${memberId}&dateOfBirth=${birthDate}`, {
+            const response = await fetch(`https://zoho-solution-887781528.development.catalystserverless.com/server/zohocrm/insurance?insurance=${selectedInsurance?.value}&firstName=${userDetails.first_name}&lastName=${userDetails.last_name}&memberId=${memberId}&dateOfBirth=${birthDate}`, {
                 method:"GET",
             })
             if(response.status === 200){
