@@ -10,13 +10,15 @@ const YourBirthday = () => {
     const { insurancePlan, handleProgressBar, birthDate, setBirthDate, isUnder18 } = useFunnel()
 
     return (
-        <div className="you-birthday h-[60vh] flex flex-col justify-center">
-            <h1 className="!text-[28px] lg:!text-[52px] !text-[#231F20] !font-semibold !mt-8 !mb-2">
+        <>
+        <div className="you-birthday flex-1 flex flex-col sm:justify-center">
+            <h1 className="!text-[28px] lg:!text-[52px] !text-[#231F20] !font-semibold !mt-8 !mb-2 text-center">
                 {localStrings.YOUR_BIRTHDAY}
             </h1>
-            <p className="text-[14px] lg:text-[22px] w-full lg:w-[70%] mx-auto !text-[#231F20] !mb-8">{insurancePlan === "self-pay" || insurancePlan === "other" ? localStrings.EIGHTEEN_OLDER : localStrings.WE_NEED_THIS_INFO}</p>
+            <p className="text-[14px] lg:text-[22px] w-full lg:w-[70%] mx-auto !text-[#231F20] text-center !mb-8">{insurancePlan === "self-pay" || insurancePlan === "other" ? localStrings.EIGHTEEN_OLDER : localStrings.WE_NEED_THIS_INFO}</p>
             <DatePicker
-                className="date-picker-birthday min-w-full lg:min-w-[50%]"
+            wrapperClassName="flex justify-center"
+                className="date-picker-birthday w-full"
                 selected={birthDate}
                 onChange={(date: any) => {
                     setBirthDate(date)
@@ -26,22 +28,27 @@ const YourBirthday = () => {
                 yearDropdownItemNumber={100}
                 maxDate={new Date()}
             />
-            <ButtonComponent
-                buttonText={localStrings.CONTINUE}
-                handleButtonClick={() => {
-                    if (isUnder18()) {
-                        navigate("/funnel/thank-you")
-                        return;
-                    }
-                    handleProgressBar();
-                    navigate("/funnel/insurance-details")
-                }}
-                className="border-0 left-[50%] -translate-x-[50%] lg:left-[40%] absolute bottom-[45px] lg:bottom-[20px] !mt-10" />
-            <p className="text-xs sm:text-sm  !text-[#231F20] absolute bottom-0 w-max left-[50%] -translate-x-[50%] flex gap-2 items-center text-left">
-                <IoIosLock />
-                {localStrings.ALL_INFO_SECURE}
-            </p>
-        </div>
+                </div>
+            <div>
+                <div className="flex justify-center">
+                    <ButtonComponent
+                        buttonText={localStrings.CONTINUE}
+                        handleButtonClick={() => {
+                            if (isUnder18()) {
+                                navigate("/funnel/thank-you")
+                                return;
+                            }
+                            handleProgressBar();
+                            navigate("/funnel/insurance-details")
+                        }}
+                        className="!mt-10" />
+                </div>
+                <p className="text-xs sm:text-sm !text-[#231F20] flex gap-2 items-center max-sm:justify-center mt-3">
+                    <IoIosLock />
+                    {localStrings.ALL_INFO_SECURE}
+                </p>
+            </div>
+        </>
     )
 }
 
